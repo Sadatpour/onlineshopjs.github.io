@@ -553,7 +553,7 @@ i {
   .cart {
     left: 8%;
     width: 330px;
-    height: 300px;
+    height: 320px;
   }
   .cart-footer .btn {
     font-size: 0.8rem;
@@ -581,8 +581,8 @@ i {
 @media screen and (max-width: 400px) {
   .cart {
     left: 7%;
-    width: 315px;
-    height: 250px;
+    width: 330px;
+    height: 330px;
   }
   .cart-item-desc h4,
   h5 {
