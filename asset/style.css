@@ -595,7 +595,7 @@ i {
     margin: 0 2px;
   }
   .cart-footer .btn {
-    width: 120px;
+    width: 130px;
     justify-content: center;
     font-size: 1rem;
     margin: 5px;
@@ -634,7 +634,8 @@ i {
     margin: 3px;
   }
   .cart-footer span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin-top: 10px;
   }
   .cart h3 {
     padding: 5px;
