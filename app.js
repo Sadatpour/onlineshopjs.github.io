@@ -51,12 +51,12 @@ class Ui {
       // check if product existing in cart or no!
       const isInCart = cart.find((p) => p.id === id);
       if (isInCart) {
-        btn.innerText = ` existed in cart!`;
+        btn.innerText = `in cart!`;
         btn.Disabled = true;
       }
       btn.addEventListener("click", (event) => {
         //console.log(event.target.dataset.id);
-        event.target.innerText = `existing in cart.`;
+        event.target.innerText = `in cart!`;
         event.target.style.color = "green";
         event.target.style.backgroundColor = "#ccc";
         event.target.style.cursor = "not-allowed";
