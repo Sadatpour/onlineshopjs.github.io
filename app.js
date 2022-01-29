@@ -207,7 +207,7 @@ class Storage {
 //add listener
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new Ui();
- 
+  ui.setupApp();
   const products = new Products();
   const productsData = products.getProducts();
   //console.log(productsData);
