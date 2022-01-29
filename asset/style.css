@@ -643,23 +643,30 @@ i {
   .cart {
     left: 11%;
     width: 270px;
-    height: 300px;
+    height: 350px;
   }
   .cart-footer .btn {
-    font-size: 0.7rem;
-    margin: 0 2px;
+    font-size: 0.9rem;
+    margin: 5px;
     padding: 5px;
     border-radius: 5px;
   }
   .cart-footer i {
     display: none;
   }
-
+  .cart-footer {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+  }
   .cart-footer span {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .cart-footer i {
     display: none;
+  }
+  .cart-footer span {
+    font-size: 1rem;
   }
   .cart-item img {
     width: 50px;
@@ -672,7 +679,7 @@ i {
   .cart {
     left: 11%;
     width: 250px;
-    height: 300px;
+    height: 330px;
   }
   .cart-footer .btn {
     font-size: 1rem;
