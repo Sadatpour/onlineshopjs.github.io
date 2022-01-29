@@ -212,6 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   //console.log(productsData);
   // get product in cart from localstorage
+  ui.setupApp();
   ui.displayProducts(productsData);
   ui.getAddToCart();
   ui.cartLogic();
