@@ -207,10 +207,9 @@ class Storage {
 //add listener
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new Ui();
-
   const products = new Products();
   const productsData = products.getProducts();
-  ui.setupApp();
+  
   //console.log(productsData);
   // get product in cart from localstorage
   ui.displayProducts(productsData);
