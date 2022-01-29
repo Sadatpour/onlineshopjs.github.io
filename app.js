@@ -32,8 +32,8 @@ class Ui {
       <div class="product">
         <img src=${item.imageUrl} alt=${item.title}/>
         <div class="info">
-          <p>${item.price}</p>
           <i class="fas fa-dollar-sign"></i>
+          <p>${item.price}</p>
           <h3>${item.title}</h3>
         </div>
         <div class="addtocart">
@@ -87,7 +87,7 @@ class Ui {
       tempCartItems += curr.quantity;
       return acc + curr.quantity * curr.price;
     }, 0);
-    cartTotal.innerText = `Total Price : ${totalPrice.toFixed(2)}  $`;
+    cartTotal.innerText = `Total Price : $ ${totalPrice.toFixed(2)}  `;
     cartItems.innerText = tempCartItems;
   }
   addCartItem(cartItem) {
@@ -112,11 +112,13 @@ class Ui {
   }
   setupApp() {
     // get cart from storage
-    cart = Storage.getCart() || [];
-    // add to cart item
-    cart.forEach((cartItem) => this.addCartItem(cartItem));
+    cart = Storage.getCart();
     // set values : price + item
     this.setCartValue(cart);
+    this.populateCart(cart);
+  }
+  populateCart(cart) {
+    cart.forEach((item) => this.addCartItem(item));
   }
   cartLogic() {
     clearCart.addEventListener("click", () => this.clearCart());
@@ -173,18 +175,16 @@ class Ui {
     this.setCartValue(cart);
     //update storage
     Storage.saveCart(cart);
-    this.buttonRefresh(id);
-  }
-  buttonRefresh(id) {
-    //et add to cart buttons => update add to card's text and disable
-    const button = buttonsDom.find(
-      (btn) => parseInt(btn.dataset.id) === parseInt(id)
-    );
+    const button = this.buttonRefresh(id);
     button.innerText = " add to cart";
     button.style.color = "#fff";
     button.style.backgroundColor = "#54433e";
     button.style.cursor = "pointer";
     button.disabled = false;
+  }
+  buttonRefresh(id) {
+    // should be parseInt to get correct result
+    return buttonsDom.find((btn) => parseInt(btn.dataset.id) === parseInt(id));
   }
 }
 //3- storage
@@ -206,12 +206,12 @@ class Storage {
 
 //add listener
 document.addEventListener("DOMContentLoaded", () => {
+  const ui = new Ui();
+  ui.setupApp();
   const products = new Products();
   const productsData = products.getProducts();
   //console.log(productsData);
-  const ui = new Ui();
   // get product in cart from localstorage
-  ui.setupApp();
   ui.displayProducts(productsData);
   ui.getAddToCart();
   ui.cartLogic();
